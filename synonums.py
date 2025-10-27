@@ -1,3 +1,5 @@
+import random
+
 synonyms = {
     "happy": ["joyful", "cheerful", "content", ],
     "sad": ["unhappy", "sorrowful", "dejected", ],
@@ -20,3 +22,17 @@ if word in synonyms:
     print(synonyms[word])
 else:
     print("SORRY")
+
+
+def refresh(s):
+    words = s.split()
+    refreshed = []
+    for word in words : 
+        clean_word = word.strip(".,!?").lower()
+        if clean_word in synonyms:
+            new = random.choice(synonyms[clean_word]).capitalize()
+            refreshed.append(new)
+        else:
+            refreshed.append(word)
+    return "".join(refreshed)
+
